@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<div class="content-section" style="padding-right: 80px; ">
+    <div style="padding-bottom: 10px">
+        <h1 style="position: absolute; left: 35%; top: 2%; ">Register</h1>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.lastName|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.username|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.email|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.department|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.phone|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.password1|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.password2|as_crispy_field }}
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="form-group" style="position: center;">
+            <input id="register_submit" name="register_submit" type="submit" value="Submit" style="position: absolute; right: 20%; ">
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted" style="position: absolute; right: 2%; bottom: 2%">
+            Already Have An Account?<a class="ml-2" href="/login">Log In</a>
+        </small>
+    </div>
+</div>
+{% endblock content %}
