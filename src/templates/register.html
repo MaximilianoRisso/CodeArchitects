@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<div class="content-section">
+
+        <h1>Register</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.lastName|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.username|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.email|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.department|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.phone|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.password1|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.password2|as_crispy_field }}
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            <input id="register_submit" name="register_submit" type="submit" value="Submit">
+        </div>
+        <div class="border-top pt-3">
+        <small class="text-muted" style="float: right">
+            Already Have An Account?<a class="ml-2" href="/login">Log In</a>
+        </small>
+    </div>
+    </form>
+
+</div>
+{% endblock content %}
