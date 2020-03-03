@@ -30,10 +30,14 @@
             <div class="navbar-nav mr-auto">
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="/login">Login</a>
-              <a class="nav-item nav-link" href="/register">Register</a>
-            </div>
+              <div class="navbar-nav">
+                 {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="/logout">Logout</a>
+                  {% else %}
+                    <a class="nav-item nav-link" href="/login">Login</a>
+                    <a class="nav-item nav-link" href="/register">Register</a>
+                 {% endif %}
+              </div>
           </div>
         </div>
       </nav>

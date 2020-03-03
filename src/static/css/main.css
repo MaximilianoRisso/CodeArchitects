@@ -9,6 +9,9 @@ body {
     background-size: cover;
 }
 
+title{
+	text-align: center;
+}
 .bg-steel {
     background-color: #f3b150;
 }
@@ -36,6 +39,14 @@ body {
     color: red;
 }
 
+label{
+	font-size: 14px;
+}
+
+h1{
+	position: center ;
+	text-align:center;
+}
 form{
 	max-width: 450px;
 	background: #FAFAFA;
@@ -103,4 +114,6 @@ input[type="submit"]:hover {
 }
 
 
-
+.help-block{
+	color: red;
+}
