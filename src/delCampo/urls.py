@@ -18,15 +18,16 @@ from django.urls import path
 from .views import home_page
 from users import views as user_views
 from django.contrib.auth import views as auth_views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', home_page),
+    path('', auth_views.LoginView.as_view(template_name='login.html')),
     path('home/', home_page),
     path('register/', user_views.register),
     path('login/', auth_views.LoginView.as_view(template_name='login.html')),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html')),
     path('admin/', admin.site.urls),
-    path('accounts/profile/', home_page)
-]
+    path('profile/', user_views.profile)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

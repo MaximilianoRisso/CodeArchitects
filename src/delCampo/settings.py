@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'delCampo',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -132,3 +133,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
+LOGIN_REDIRECT_URL = '/profile'

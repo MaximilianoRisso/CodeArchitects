@@ -10,29 +10,34 @@
 
     <form method="POST">
         {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ profile_form.non_field_errors }}
         <fieldset class="form-group">
             <div class="row">
                 <div class="col-6">
-                    {{ form.name|as_crispy_field }}
+                    {{ form.subject.errors }}
+                    {{ form.first_name|as_crispy_field }}
                 </div>
                 <div class="col-6">
-                    {{ form.lastName|as_crispy_field }}
+                    {{ form.last_name|as_crispy_field }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     {{ form.username|as_crispy_field }}
+                    {{ form.subject.errors }}
                 </div>
                 <div class="col-6">
                     {{ form.email|as_crispy_field }}
+                    {{ form.subject.errors }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    {{ form.department|as_crispy_field }}
+                    {{ profile_form.department|as_crispy_field }}
                 </div>
                 <div class="col-6">
-                    {{ form.phone|as_crispy_field }}
+                    {{ profile_form.phone|as_crispy_field }}
                 </div>
             </div>
             <div class="row">
