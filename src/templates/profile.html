@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+ <div class="content-section">
+         <h1> Profile </h1>
+   <div class="content-section" style="background-color: lightgrey">
+      <div style="padding: 10px" class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width:120px; height: 120px; padding: 10px">
+        <div style="text-align: center"  class="media-body">
+          <h2 class="account-heading">  {{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+             <p class="text-secondary">{{ user.profile.phone }}</p>
+             <p class="text-secondary">{{ user.first_name }}  {{ user.last_name }}</p>
+             <p class="text-secondary">{{ user.profile.department }}</p>
+
+
+        </div>
+      </div>
+    </div>
+ </div>
+
+{% endblock %}
