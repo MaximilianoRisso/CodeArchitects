@@ -10,7 +10,7 @@ class UserRegisterForm(UserCreationForm):
         "unique": "Email is already associated to an account1"
     })
 
-    name = models.CharField()
-    lastName = models.CharField()
+    first_name = models.CharField()
+    last_name = models.CharField()
 
 

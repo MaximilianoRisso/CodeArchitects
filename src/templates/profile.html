@@ -5,15 +5,50 @@
          <h1> Profile </h1>
    <div class="content-section" style="background-color: lightgrey">
       <div style="padding: 10px" class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width:120px; height: 120px; padding: 10px">
+        <img class="rounded-circle account-img" src="{{ user.profile.imagePic.url }}" style="width:120px; height: 120px; padding: 10px">
         <div style="text-align: center"  class="media-body">
           <h2 class="account-heading">  {{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
-             <p class="text-secondary">{{ user.profile.phone }}</p>
+             <p class="text-secondary">{{ user.profile.phone|stringformat:"+598d" }}</p>
              <p class="text-secondary">{{ user.first_name }}  {{ user.last_name }}</p>
              <p class="text-secondary">{{ user.profile.department }}</p>
+            <form method="POST">
+        {% csrf_token %}
+       {{ profile_update_form.errors }}
+            {{ user_update_form.errors }}
 
+                <fieldset class="form-group">
+            <div class="row" >
+                <div class="col-6">
+                   {{profile_update_form.imagePic|as_crispy_field}}
+                </div>
+                <div class="col-6">
+                   {{profile_update_form.phone|as_crispy_field}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.subject.errors }}
+                    {{ user_update_form.first_name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.subject.errors }}
+                    {{ user_update_form.last_name|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ user_update_form.username|as_crispy_field }}
 
+                </div>
+                <div class="col-6">
+                        {{profile_update_form.department|as_crispy_field}}
+                </div>
+            </div>
+        </fieldset>
+            <div class="form-group">
+                <input id="update_submit" name="update_submit" type="submit" value="Submit">
+            </div>
         </div>
       </div>
     </div>
