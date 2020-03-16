@@ -22,3 +22,22 @@ class Profile(models.Model):
 
         img = Image.open(self.imagePic.path)
         img.save(self.imagePic.path)
+
+class Product(models.Model):
+
+    imageProduct = models.ImageField(default='default.jpg', upload_to='product_pics')
+    price = models.PositiveIntegerField(null=True)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class PendingOrder(models.Model):
+
+    
+    price = models.PositiveIntegerField(null=True)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'{self.name}'
